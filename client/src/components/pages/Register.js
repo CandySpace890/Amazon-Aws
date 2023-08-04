@@ -44,7 +44,7 @@ const RegisterForm = () => {
       <h2>Registration</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="username">User Email</label>
+          <label htmlFor="username">User Name</label>
           <input
             type="text"
             id="username"
