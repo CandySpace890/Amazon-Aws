@@ -72,7 +72,7 @@ const sendEmail = async(req,link)=>{
       Source:email,
       Destination: {
         ToAddresses: [
-          req.body.email1,"darshi7akash@gmail.com"
+          req.body.email1
         ],
       },
       Message:{
