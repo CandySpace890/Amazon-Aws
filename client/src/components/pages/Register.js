@@ -13,15 +13,6 @@ const RegisterForm = () => {
 
   const onChange = (e) => updateUser(e.target.name, e.target.value)
 
-  // const [user, setUser] = useState({
-  //   username:'',
-  //   password:'',
-  //   email:'',
-  // });
-
-  // const {username, password, email} = user;  
-
-  // const onChange = (e) => setUser({...user,[e.target.name]:e.target.value});
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -53,15 +44,29 @@ const RegisterForm = () => {
       <h2>Registration</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="userId">User ID</label>
+          <label htmlFor="username">User Email</label>
           <input
             type="text"
             id="username"
             name="username"
             className="form-control"
-            placeholder="Enter User ID"
+            placeholder="Enter User name"
             onChange={onChange}
             value={username}
+            required
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="email">email</label>
+          <input
+            type="text"
+            id="email"
+            name="email"
+            className="form-control"
+            placeholder="Enter user mail"
+            onChange={onChange}
+            value={email}
             required
           />
         </div>
@@ -75,19 +80,6 @@ const RegisterForm = () => {
             placeholder="Enter Password"
             onChange={onChange}
             value={password}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="confirmPassword">Confirm Password</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            className="form-control"
-            placeholder="Confirm Password"
-            onChange={onChange}
-            value={email}
             required
           />
         </div>

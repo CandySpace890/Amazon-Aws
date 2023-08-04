@@ -38,13 +38,11 @@ const Profile = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Response data", data);
-        // Handle the response data here
-        // You can display a success message or perform other actions based on the response
-        // navigate("/profile");
+        alert("EMail sent successfully")
       })
       .catch((error) => {
         console.error("Error uploading file:", error);
-        // Handle the error here
+        alert("Error from Email:",error)
       });
   };
 

@@ -7,6 +7,7 @@ const router = express.Router();
 router
   .post('/login', async (req, res) => {
     try {
+      console.log("Inside user route")
       const user = await User.userLogin(req.body.email, req.body.password);
       console.log(user)
       res.send({...user, password: undefined});

@@ -20,6 +20,7 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // const userid=username
+    console.log("user name",email,"password",password)
     fetchData("/user/login", 
       {
         email,
@@ -34,7 +35,7 @@ const LoginForm = () => {
       }
     })  
     .catch((error) => {
-      console.log(error)
+      console.log("Error",error)
     })
 
   }
@@ -51,7 +52,7 @@ const LoginForm = () => {
             id="email"
             name="email"
             className="form-control"
-            placeholder="Enter User email"
+            placeholder="Enter User Email"
             value={email}
             onChange={onChange}
             required

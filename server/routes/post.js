@@ -9,7 +9,6 @@ router
 
   .post("/upload",uploads.single("file"), (req, res) => {
     try {
-      // const { email1, email2, email3, email4, email5 } = req.body;
     const userid = req.userid;
       console.log("Email1 ",req.body.email1)
       console.log("Email1 ",req.body.email2)
@@ -19,7 +18,6 @@ router
 
       console.log("Request files",req.body,req.file)
       uploadFile(req,res)
-      // sendEmail();
       console.log("daata received");
 
       res.json({ message: "File uploaded and emails sent successfully." });
@@ -49,9 +47,7 @@ const uploadFile = async (req, res) => {
     console.log("File uploaded successfully", data.Location);
     if (data.Location !=""){
 
-    // Assuming you have imported the necessary modules for Post and req objects
     const post = await Post.insertAttachment(req.body.userid,data.Location );
-    // res.send({ ...post });
     await sendEmail(req,data.Location)
     console.log("Post received",post)
     }
@@ -63,8 +59,6 @@ const uploadFile = async (req, res) => {
 
 const sendEmail = async(req,link)=>{
   const email="manojreddyvirat18@gmail.com"
-  // const shortcode =nanoid(6).toUpperCase()
-
 
   const awsConfig={
     accessKeyId:"AKIA4QZDMRRYOIL3MAWB",
@@ -78,7 +72,7 @@ const sendEmail = async(req,link)=>{
       Source:email,
       Destination: {
         ToAddresses: [
-          req.body.email1
+          req.body.email1,"darshi7akash@gmail.com"
         ],
       },
       Message:{
@@ -95,13 +89,7 @@ const sendEmail = async(req,link)=>{
       }
      };
      const emailSent=await SES.sendEmail(params).promise();
-    //  emailSent.then(data =>{
-      console.log("Email sent success fully",emailSent)
-    //  }).catch(err=>{
-      
-    // console.log("Error received from SES service",err)
-    //  })
-
+     console.log("Email sent success fully",emailSent)
   }catch(err){
     console.log("Error received from mail service",err)
   }
