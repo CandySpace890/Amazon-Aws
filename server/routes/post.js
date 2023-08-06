@@ -72,7 +72,11 @@ const sendEmail = async(req,link)=>{
       Source:email,
       Destination: {
         ToAddresses: [
-          req.body.email1
+          req.body.email1,
+          req.body.email2,
+          req.body.email3,
+          req.body.email4,
+          req.body.email5
         ],
       },
       Message:{
